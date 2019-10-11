@@ -35,12 +35,12 @@ export default new Router({
         {
           path: '/addAccount',
           name: 'addAccount',
-          component: () => import('./views/account/addAccount.vue'),
+          component: () => import('./views/account/addAccount.vue')
         },
         {
           path: '/btn',
           name: 'btn',
-          component: () => import('./views/account/btn.vue'),
+          component: () => import('./views/account/btn.vue')
         }
       ]
     },

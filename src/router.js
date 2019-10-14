@@ -38,10 +38,10 @@ export default new Router({
     },
     {
       path: '/account',
-      name: 'account',
+      // name: 'account',
       component: () => import('./views/account/account.vue'),
       children: [
-        { path: '/', redirect: '/btn' },
+        { path: '', redirect: '/btn' },
         {
           path: '/addAccount',
           name: 'addAccount',

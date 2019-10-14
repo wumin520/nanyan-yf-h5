@@ -3,6 +3,7 @@
       <div class="title">预约</div>
 
       <cube-form
+        ref="form"
         :model="model"
         :schema="schema"
         :immediate-validate="false"
@@ -44,7 +45,7 @@ export default {
         likeMan: '',
         phone: '',
         email: '',
-        cooperation: '',
+        remark: '',
         sex: ''
       },
       schema: {
@@ -52,17 +53,6 @@ export default {
           {   //第一部分
             legend: '公司基本信息',
             fields: [
-                {
-                type: 'radio-group',
-                modelKey: 'type',
-                label: '预约类型',
-                props: {
-                  options: ['外挂预约', '线下预约']  //1,外挂预约，2,线下预约
-                },
-                rules: {
-                  required: true
-                }
-              },
               {
                 type: 'input',
                 modelKey: 'companyName',
@@ -288,7 +278,7 @@ export default {
               },
               {
                 type: 'input',
-                modelKey: 'cooperation',
+                modelKey: 'remark',
                 label: '合作/投保需求',
                 props: {
                   placeholder: '请输入合作/投保需求'
@@ -316,25 +306,30 @@ export default {
       }
     }
   },
+  mounted () {
+    console.log(this.$refs)
+  },
   methods: {
     submitHandler(e) {
       e.preventDefault()
       console.log('submit--》', e)
       console.log("====>", this.model)
-      if(this.model.type === "外挂预约"){
-        this.model.type = 1
-      } else{
-        this.model.type = 2
-      }
+      this.model.type = 2
       api.order(this.model).then((res) => {
-          console.log(res)
+        console.log(res)
+        this.$createDialog({
+          type: 'alert',
+          title: '提交成功',
+          icon: 'cubeic-right'
+        }).show()
+        this.$refs.form.reset();      
       })
     },
-    // validateHandler(result) {
-    //   this.validity = result.validity
-    //   this.valid = result.valid
-    //   console.log('validity', result.validity, result.valid, result.dirty, result.firstInvalidFieldIndex)
-    // },
+    validateHandler(result) {
+      this.validity = result.validity
+      this.valid = result.valid
+      console.log('validity', result.validity, result.valid, result.dirty, result.firstInvalidFieldIndex)
+    },
     resetHandler(e) {
       console.log('reset', e)
     }

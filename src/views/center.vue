@@ -25,10 +25,11 @@
         <div class="list_txt">关于我们</div>
       </div>
       <div class="list_1 list_btn">
-        <cube-button class="Btn" @click="addCard">退出登录</cube-button>
+        <cube-button class="Btn" @click="exit">退出登录</cube-button>
       </div>
     </div>
-
+  
+  <tab-Bar :num="2"></tab-Bar>
   </div>
 </template>
 
@@ -38,12 +39,17 @@ export default {
   data () {
     return {
     }
+  },
+  methods:{
+    exit () {
+      this.$router.push({name:'login'})
+    }
   }
 }
 </script>
 <style scoped>
  .title{
-  margin:30px 152px 17px 151px;
+  margin:30px 100px 17px 100px;
   font-size:18px;
     font-family:Microsoft YaHei;
     font-weight:600;

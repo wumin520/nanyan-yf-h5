@@ -29,4 +29,8 @@ html {
     }
   }
 }
+
+.cube-slide-item > a > img{
+    width: 100%;
+}
 </style>

@@ -40,7 +40,7 @@ export default {
 </script>
 <style scoped>
  .title{
-  margin:30px 140px 17px 140px;
+  margin:30px 100px 17px 100px;
   font-size:18px;
     font-family:Microsoft YaHei;
     font-weight:600;

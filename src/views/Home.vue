@@ -11,7 +11,7 @@
         保单服务
         </div>
       <div class="guarantee-down">
-        <div class="guarantee-down-child1">
+        <div class="guarantee-down-child1" @click="myBd">
           <div class="child-text1">我的保单</div>
           <div class="child-text2">新的体验马上来</div>
         </div>
@@ -47,15 +47,7 @@
       <img src="../assets/home/my.png">
     </div> -->
 
-    <div class="tabBar">
-      <a href="javascript:;" class="weui-tabbar__item " v-for="(i,index) in tabs" :key="index" :class="{active:index == thatnum}" @click="addClassName(index)">
-          <router-link :to="i.url">
-            <img v-if="thatnum!=index"  :src="i.img" class="first weui-tabbar__icon">
-            <img v-if="thatnum==index"  :src="i.active" class="last first weui-tabbar__icon">
-            <!-- <p class="weui-tabbar__label">{{i.text}}</p> -->
-          </router-link>
-      </a>
-    </div>
+  <tab-Bar :num="0"></tab-Bar>
 
   </div>
 
@@ -67,22 +59,6 @@
 export default {
   data () {
     return {
-       thatnum: 0,
-      tabs:[
-        {url:'#',img:require("../assets/home/home.png"),active:require('../assets/home/homeAct.png')},
-        {url:'#',img:require("../assets/home/kefu.png"),active:require('../assets/home/kefuAct.png')},
-        {url:'#',img:require("../assets/home/kefu.png"),active:require('../assets/home/kefuAct.png')}
-      ],
-      tabBar:{
-       home:{
-        home: '../assets/home/home.png',
-        homeAct: '../assets/home/homeAct.png'
-       },
-       kefu:{
-        kefu: '../assets/home/kefu.png',
-        kefuAct: '../assets/home/kefuAct.png'
-       }
-      },
       slideDate: {
         loop: true,
         autoPlay: true,
@@ -104,27 +80,28 @@ export default {
       ]
     }
   },
-  mounted(){
-    this.thatnum=this.tabName
-  },
   methods:{
-    addClassName: function(index) {
-      this.thatnum = index;
-    },
     change(val,e) {
       console.log(val,e)
+    },
+    myBd() {
+      this.$router.push({name:"bdDetail"})
     }
   }
 }
 </script>
 <style scoped lang="scss">
+  
 
  .title{
-  margin:30px 152px 17px 151px;
-  font-size: 17px;
-  font-family:Source Han Sans CN;
-  font-weight:600;
-  color:rgba(37,37,37,1);
+    font-size: 0.453333rem;
+    font-family: Source Han Sans CN;
+    font-weight: 600;
+    color: #252525;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin:30px 100px 17px 100px;
  }
 
  .guarantee{
@@ -246,4 +223,5 @@ export default {
 .active p{
   color: #006a3c;
 }
+
 </style>

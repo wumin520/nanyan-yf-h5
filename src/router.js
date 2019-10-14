@@ -9,9 +9,19 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/',
+      component: Home,
+      redirect: { name: 'login' }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/login.vue')
     },
     {
       path: '/about',
@@ -30,8 +40,8 @@ export default new Router({
       path: '/account',
       name: 'account',
       component: () => import('./views/account/account.vue'),
-      children:[
-        {path:'/',redirect:'/btn'},
+      children: [
+        { path: '/', redirect: '/btn' },
         {
           path: '/addAccount',
           name: 'addAccount',
@@ -55,14 +65,19 @@ export default new Router({
       component: () => import('./views/center.vue')
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/login.vue')
-    },
-    {
       path: '/info',
       name: 'info',
       component: () => import('./views/info.vue')
+    },
+    {
+      path: '/bdDetail',
+      name: 'bdDetail',
+      component: () => import('./views/bdDetail.vue')
+    },
+    {
+      path: '/appointment',
+      name: 'appointment',
+      component: () => import('./views/appointment.vue')
     }
   ]
 })

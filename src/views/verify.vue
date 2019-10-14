@@ -35,7 +35,7 @@ export default {
 </script>
 <style scoped>
  .title{
-  margin:30px 152px 17px 151px;
+  margin:30px 100px 17px 100px;
   font-size: 17px;
   font-family:Source Han Sans CN;
   font-weight:600;

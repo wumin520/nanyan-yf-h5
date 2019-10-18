@@ -76,7 +76,12 @@ export default new Router({
       component: () => import('./views/info.vue')
     },
     {
-      path: '/bdDetail',
+      path: '/bdList',
+      name: 'bdList',
+      component: () => import('./views/bdList.vue')
+    },
+    {
+      path: '/bdDetail/:id',
       name: 'bdDetail',
       component: () => import('./views/bdDetail.vue')
     },

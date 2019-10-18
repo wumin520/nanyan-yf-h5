@@ -117,6 +117,15 @@ let api = {};
 api.order = function(data) {
   return instance.post("plug/appointment", data);
 };
+// /wechat/user/updateUser
+// /wechat/policy/getPolicyListByWechatUserId
+api.getPolicyListByWechatUserId = function(data) {
+  return instance.post('wechat/policy/getPolicyListByWechatUserId', data)
+};
+// /wechat/policy/getPolicyById
+api.getPolicyById = function(data) {
+  return instance.post(`wechat/policy/getPolicyById?${qs.stringify(data)}`, data)
+};
 
 //获取验证码
 api.getVerificationCode = function(data) {

@@ -1,4 +1,5 @@
 <template>
+<div class="wrap_">
   <div class="tabBar">
       <a href="javascript:;" class="weui-tabbar__item " v-for="(i,index) in tabs" :key="index" :class="{active:index == thatnum}" @click="addClassName(index)">
           <router-link :to="i.url">
@@ -8,6 +9,7 @@
           </router-link>
       </a>
     </div>
+</div>
 </template>
 
 <script>
@@ -32,7 +34,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.wrap_ {
+    height: 50px;
+}
 .tabBar{
    height: 50px;
     width: 100%;

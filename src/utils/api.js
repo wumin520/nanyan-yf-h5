@@ -90,7 +90,7 @@ instance.interceptors.response.use(
     const { returnCode, returnMsg } = response.data;
     if (returnCode !== "0000") {
       if (returnCode === '1012') {
-        this.$router.push("/login");
+        window.router.push('/login');
       }else {
         window.message.error(returnMsg);
       }
@@ -116,6 +116,21 @@ instance.interceptors.response.use(
 let api = {};
 api.order = function(data) {
   return instance.post("plug/appointment", data);
+};
+
+//获取验证码
+api.getVerificationCode = function(data) {
+  return instance.post("/wechat/user/getVerificationCode", data);
+};
+
+//注册
+api.binding = function(data) {
+  return instance.post("/wechat/user/updateUser", data);
+};
+
+//登录
+api.login = function(data) {
+  return instance.post("/wechat/user/login/authority", data);
 };
 
 export default api;

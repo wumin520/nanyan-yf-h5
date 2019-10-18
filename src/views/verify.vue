@@ -6,7 +6,6 @@
             <img class="input-1" src="../assets/verify/verify1.png">
             <input type="text" class="input-2" name="" id="" placeholder="输入手机号">
             <div class="input-3 ">
-            <img class="input-direct" src="../assets/verify/verify2.png">
             </div>
         </div>
         <div class="input">
@@ -42,7 +41,15 @@ export default {
   color:rgba(37,37,37,1);
  }
 
+  .input-2::-webkit-input-placeholder {
+      color: #ccc;
+      font-size: 14px;
+      padding-left:9px;
+      font-weight: 400;
+  }
+
   .verify-input{
+      margin-bottom: 1rem;
       height: 150px;
       width: 100%;
       display: flex;
@@ -53,6 +60,7 @@ export default {
 
  .input{
      font-size: 16px;
+     padding: 15px 10px 5px;
      height: 40px;
      width: 85%;
      display: flex;
@@ -74,10 +82,13 @@ export default {
  }
 
 .input-3{
-     height: 16px;
+     height: 40px;
      width: 100px;
-    display: flex;
-    justify-content: flex-end;
+     color:#297FFF;
+     font-size: 14px;
+     display: flex;
+     justify-content: flex-end;
+     align-items:center;
  }
 
  .input-direct{

@@ -9,15 +9,16 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/',
+      name:'/',
+      redirect: { name: 'login' }
+    },
+    {
       path: '/home',
       name: 'home',
       component: Home
     },
-    {
-      path: '/',
-      component: Home,
-      redirect: { name: 'login' }
-    },
+    
     {
       path: '/login',
       name: 'login',
@@ -35,6 +36,11 @@ export default new Router({
       path: '/verify',
       name: 'verify',
       component: () => import('./views/verify.vue')
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('./views/register.vue')
     },
     {
       path: '/account',

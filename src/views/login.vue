@@ -2,9 +2,9 @@
   <div class="login">
     <div class="logo">LOGO</div>
     <div class="login_form">
-        <cube-input class="logStyle" :placeholder="placeholder1"></cube-input>
-        <cube-input class="logStyle" :placeholder="placeholder2"></cube-input>
-        <cube-button class="Btn">立即登录</cube-button>
+        <cube-input class="logStyle" :placeholder="placeholder1" v-model="form.userName"></cube-input>
+        <cube-input class="logStyle" :placeholder="placeholder2" v-model="form.passWord"></cube-input>
+        <cube-button class="Btn" @click="login">立即登录</cube-button>
         <div class="logStyle1">
             <div class="logTxt">忘记密码？</div>
             <div class="logTxt">立即注册 </div>
@@ -14,12 +14,42 @@
 </template>
 
 <script>
+import api from "@/utils/api"
+import { setLogined, cacheUserInfo } from "@/utils/authorized";
 
 export default {
   data () {
     return {
-        placeholder1:'登录',
-        placeholder2:'密码'
+        form:{
+          userName:'',
+          passWord: ''
+        },
+        placeholder1:'请输入省份证、手机号',
+        placeholder2:'请输入密码'
+    }
+  },
+  methods:{
+    login() {
+      api.login(this.form).then(res => {
+        cacheUserInfo(res.data.content);
+        setLogined(1);
+        
+        if(res.data.returnCode !== "0000"){
+          this.$createToast({
+            type: 'correct',
+            txt:  res.data.returnMsg,
+            time: 1000
+          }).show()
+        } else {
+          this.$createToast({
+            txt: '登录成功,准备跳转...',
+            time: 1000,
+            onTimeout: () => {
+              this.$router.push({name:'home'})
+            }
+          }).show()
+        }
+      })
     }
   }
 }

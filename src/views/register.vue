@@ -3,12 +3,12 @@
     <div class="title">身份认证</div>
     <div class="verify-input">
         <div class="input">
-            <img class="input-1" src="../assets/verify/verify1.png">
+            <img class="input-1" src="../assets/center/center1.png">
             <input v-model="form.name" type="text" class="input-2" name="" id="" placeholder="姓名">
 
         </div>
         <div class="input">
-            <img class="input-1" src="../assets/verify/verify1.png">
+            <img class="input-1" src="../assets/center/center1.png">
             <!-- <input type="text" class="input-2" name="" id="" placeholder="证件类型"> -->
             <cube-select
               v-model="idTypeValue"
@@ -18,18 +18,8 @@
             </cube-select>
         </div>
         <div class="input">
-            <img class="input-1" src="../assets/verify/verify1.png">
+            <img class="input-1" src="../assets/account/account2.png">
             <input v-model="form.idNumber" type="text" class="input-2" name="" id="" placeholder="证件号码">
-        </div>
-        <div class="input">
-            <img class="input-1" src="../assets/verify/verify1.png">
-            <cube-select
-              v-model="sexValue"
-              :options="sexOptions"
-              :placeholder="sexPlaceholder"
-              @change="sexChange">
-            </cube-select>
-
         </div>
         <div class="input">
             <img class="input-1" src="../assets/verify/verify1.png">
@@ -38,13 +28,13 @@
         </div>
 
         <div class="input">
-            <img class="input-1" src="../assets/verify/verify1.png">
+            <img class="input-1" src="../assets/account/account3.png">
             <input v-model="form.phone" type="text" class="input-2" name="" id="" placeholder="手机号">
         </div>
 
         <div class="input">
             <img class="input-1" src="../assets/verify/verify1.png">
-            <input v-model="form.verifyCode" style="width: 41%;" type="text" class="input-2" name="" id="" placeholder="验证码">
+            <input v-model="form.verificationCode" style="width: 41%;" type="text" class="input-2" name="" id="" placeholder="验证码">
             <div class="input-3 input-code" @click="getCode">{{codeMsg}}</div>
         </div>
     </div>
@@ -69,42 +59,77 @@ export default {
       idTypeValue: '证件类型',
       idTypeOptions: ['省份证', '其他'],
       idTypePlaceholder: '证件类型',
-      sexOptions: ['男', '女'],
-      sexPlaceholder: '性别',
-      sexValue: '',
       form: {
         name: '',
         idType: '',
         idNumber: '',
-        sex: '',
         birthday: '',
         phone: '',
-        verifyCode: ''
+        verificationCode: ''
       }
     }
   },
   methods: {
+    tipInfo(msg){
+              this.$createToast({
+                  type: 'correct',
+                  txt: msg,
+                  time: 1000
+                }).show()
+    },
     jumpLogin () {
       this.$router.push({ name: 'login' })
     },
     regist () {
-      api.binding(this.form).then(res => {
-        if (res.data.returnCode !== '0000') {
-          this.$createToast({
-            type: 'correct',
-            txt: res.data.returnMsg,
-            time: 1000
-          }).show()
-        } else {
-          this.$createToast({
-            txt: '注册成功',
-            time: 1000,
-            onTimeout: () => {
-              this.$router.push({ name: 'login' })
-            }
-          }).show()
-        }
+     if(this.form.name == ""){
+        this.tipInfo("请输入姓名")
+        return false
+     } else if (this.form.idType == ""){
+       this.tipInfo("请输入证件类型") 
+       return false
+     } else if (this.form.idNumber == ""){
+       this.tipInfo("请输入证件号码")
+       return false
+     } else if (this.form.birthday == ""){
+       this.tipInfo("请输入生日")
+       return false
+     } else if (this.form.verificationCode == ""){
+       this.tipInfo("请输入验证码")
+       return false
+     }
+
+      var myPromise = new Promise((result,reject) => {
+          api.validate({verificationCode:this.form.verificationCode,phone:this.form.phone}).then(res => {
+             if (res.data.returnCode !== '0000') {
+                this.tipInfo(res.data.returnMsg)
+                rejest()
+              } else {  
+                result()
+              }
+          })
       })
+      
+      myPromise.then(() => {
+          api.binding(this.form).then(res => {
+          if (res.data.returnCode !== '0000') {
+            this.$createToast({
+              type: 'correct',
+              txt: res.data.returnMsg,
+              time: 1000
+            }).show()
+          } else {
+            this.$createToast({
+              txt: '注册成功',
+              time: 1000,
+              onTimeout: () => {
+                this.$router.push({ name: 'login' })
+              }
+            }).show()
+          }
+        })
+      })
+      
+
     },
     getCode () {
       let params = {
@@ -113,6 +138,15 @@ export default {
       }
 
       if (!this.timer) {
+         if(!/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(this.form.phone)){
+        this.$createToast({
+                  type: 'correct',
+                  txt: "手机格式不正确",
+                  time: 1000
+                }).show()
+          return false
+       }
+
         api.getVerificationCode(params).then(res => {
           // console.log(res)
           if (res.data.returnCode !== '0000') {
@@ -122,6 +156,12 @@ export default {
               time: 1000
             }).show()
           }
+        }).catch(err => {
+              clearInterval(this.timer)
+              this.codeMsg = '获取验证码'
+              this.countdown = 60
+              this.timer = null
+              this.codeDisabled = false
         })
 
         this.timer = setInterval(() => {
@@ -143,9 +183,6 @@ export default {
     idTypeChange (value, index, text) {
       console.log('idTypeChange', value, index, text)
       this.form.idType = index + 1
-    },
-    sexChange (value, index, text) {
-      console.log('sexChange', value, index, text)
     },
     showDatePicker () {
       if (!this.datePicker) {
@@ -180,6 +217,7 @@ export default {
 .cube-select{
   width:78%;
   text-align: left;
+  padding: 0;
 }
 i{
   display: none;
@@ -193,7 +231,7 @@ i{
 .input-2::-webkit-input-placeholder {
     color: #ccc;
     font-size: 14px;
-    padding-left:9px;
+    /* padding-left:9px; */
     font-weight: 400;
 }
 .input:-moz-placeholder {

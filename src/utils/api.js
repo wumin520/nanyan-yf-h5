@@ -67,7 +67,7 @@ const errorHandler = error => {
     return
   }
   window.toast({
-    txt: `请求错误 ${status}: ${error.config.url}`,
+    txt: `网络错误`,
     type: 'txt'
   }).show()
   // environment should not be used
@@ -135,7 +135,12 @@ api.getPolicyById = function (data) {
 
 // 获取验证码
 api.getVerificationCode = function (data) {
-  return instance.post('/wechat/user/getVerificationCode', data)
+  return instance.post('/wechat/user/getVerificationCode', qs.stringify(data))
+}
+
+//校验验证码
+api.validate = function (data) {
+  return instance.post('/wechat/user/checkVerificationCode', qs.stringify(data))
 }
 
 // 注册

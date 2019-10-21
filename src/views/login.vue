@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="logo">LOGO</div>
+    <img src="../assets/login.png" alt="logo" class="logo">
     <div class="login_form">
         <cube-input class="logStyle" :placeholder="placeholder1" v-model="form.userName"></cube-input>
         <cube-input class="logStyle" :placeholder="placeholder2" v-model="form.passWord"></cube-input>
@@ -56,6 +56,8 @@ export default {
 </script>
 <style scoped>
  .logo{
+   height: 30px;
+   width: auto;
      margin: 100px auto;
     font-size:52px;
     font-family:Myriad Pro;

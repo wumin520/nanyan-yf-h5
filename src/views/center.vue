@@ -3,8 +3,8 @@
     <div class="title">个人中心</div>
     <div class="head">
       <!-- <img class="head_1" src="../assets/center/head.png" alt="head"> -->
-      <div class="head_2">昵称：我是路人甲</div>
-      <div class="head_2 head_3">手机号：13315216545</div>
+      <div class="head_2">昵称：{{userInfo.name || '---'}}</div>
+      <div class="head_2 head_3">手机号：{{userInfo.phone || '---'}}</div>
     </div>
 
     <div class="list">
@@ -36,18 +36,25 @@
 </template>
 
 <script>
-
+import api from '@/utils/api';
+import { getUserInfo } from '@/utils/authorized';
 export default {
   data () {
     return {
+      userInfo: {}
     }
+  },
+  created () {
+    this.userInfo = getUserInfo() || {}
   },
   methods: {
     forwardTo (path) {
       this.$router.push(path)
     },
     exit () {
-      this.$router.push({ name: 'login' })
+      api.exitLogin().then(res => res.data).then(data => {
+        this.$router.push({ name: 'login' })
+      })
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="verify">
-    <div class="title">身份验证</div>
+    <div class="title">身份认证</div>
     <div class="verify-input">
         <div class="input">
             <img class="input-1" src="../assets/verify/verify1.png">

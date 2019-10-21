@@ -7,7 +7,7 @@
         <cube-button class="Btn" @click="login">立即登录</cube-button>
         <div class="logStyle1">
             <div class="logTxt">忘记密码？</div>
-            <div class="logTxt">立即注册 </div>
+            <div class="logTxt"><router-link to="/register">立即注册</router-link> </div>
         </div>
     </div>
   </div>
@@ -104,7 +104,9 @@ export default {
     background: #297FFF;
     border-radius: 25px;
  }
-
+ a {
+   color: #297FFF;
+ }
  .cube-input_active{
      border-color: #297FFF;
  }

@@ -148,4 +148,8 @@ api.login = function (data) {
   return instance.post('/wechat/user/login/authority', data)
 }
 
+api.exitLogin = function (data) {
+  return instance.post('wechat/user/exit', data)
+}
+
 export default api

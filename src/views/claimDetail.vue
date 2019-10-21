@@ -36,7 +36,7 @@ export default {
   font-family:Source Han Sans CN;
   font-weight:600;
   color:rgba(37,37,37,1);
-  
+
  }
 
  .detail{

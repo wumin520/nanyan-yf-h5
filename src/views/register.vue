@@ -1,11 +1,11 @@
 <template>
   <div class="verify">
-    <div class="title">手机验证</div>
+    <div class="title">身份验证</div>
     <div class="verify-input">
         <div class="input">
             <img class="input-1" src="../assets/verify/verify1.png">
             <input v-model="form.name" type="text" class="input-2" name="" id="" placeholder="姓名">
-            
+
         </div>
         <div class="input">
             <img class="input-1" src="../assets/verify/verify1.png">
@@ -16,7 +16,7 @@
               :placeholder="idTypePlaceholder"
               @change="idTypeChange">
             </cube-select>
-        </div>   
+        </div>
         <div class="input">
             <img class="input-1" src="../assets/verify/verify1.png">
             <input v-model="form.idNumber" type="text" class="input-2" name="" id="" placeholder="证件号码">
@@ -29,12 +29,12 @@
               :placeholder="sexPlaceholder"
               @change="sexChange">
             </cube-select>
-            
-        </div>   
+
+        </div>
         <div class="input">
             <img class="input-1" src="../assets/verify/verify1.png">
             <input v-model="form.birthday" type="text" class="input-2" name="" id="" placeholder="生日" @click="showDatePicker">
-            
+
         </div>
 
         <div class="input">
@@ -49,53 +49,50 @@
         </div>
     </div>
 
-    <cube-button class="verifyBtn" @click="regist" :disabled="codeDisabled">立即注册</cube-button>
+    <cube-button class="verifyBtn" @click="regist" :disabled="codeDisabled">立即认证</cube-button>
 
     <div class="help" @click="jumpLogin">已有账号 立即登录</div>
 
-
   </div>
 
-  
 </template>
 
 <script>
-import api from "@/utils/api"
+import api from '@/utils/api'
 export default {
   data () {
     return {
       codeDisabled: false,
       countdown: 60,
       timer: null,
-      codeMsg: "获取验证码",
-      idTypeValue: "证件类型",
-      idTypeOptions: ["省份证","其他"],
-      idTypePlaceholder: "证件类型",
-      sexOptions: ["男","女"],
-      sexPlaceholder: "性别",
-      sexValue:"",
-      form:{
-        name:"",
-        idType:"",
-        idNumber:"",
-        sex: "",
-        birthday:"",
+      codeMsg: '获取验证码',
+      idTypeValue: '证件类型',
+      idTypeOptions: ['省份证', '其他'],
+      idTypePlaceholder: '证件类型',
+      sexOptions: ['男', '女'],
+      sexPlaceholder: '性别',
+      sexValue: '',
+      form: {
+        name: '',
+        idType: '',
+        idNumber: '',
+        sex: '',
+        birthday: '',
         phone: '',
         verifyCode: ''
       }
     }
   },
-  methods:{
-    jumpLogin() {
-      this.$router.push({name:'login'})
+  methods: {
+    jumpLogin () {
+      this.$router.push({ name: 'login' })
     },
     regist () {
-
       api.binding(this.form).then(res => {
-        if(res.data.returnCode !== "0000"){
+        if (res.data.returnCode !== '0000') {
           this.$createToast({
             type: 'correct',
-            txt:  res.data.returnMsg,
+            txt: res.data.returnMsg,
             time: 1000
           }).show()
         } else {
@@ -103,58 +100,54 @@ export default {
             txt: '注册成功',
             time: 1000,
             onTimeout: () => {
-              this.$router.push({name:'login'})
+              this.$router.push({ name: 'login' })
             }
           }).show()
         }
       })
     },
-    getCode() {
+    getCode () {
       let params = {
-        type: "1",
+        type: '1',
         phone: this.form.phone
       }
 
       if (!this.timer) {
         api.getVerificationCode(params).then(res => {
-                  // console.log(res)
-                 if(res.data.returnCode !== "0000"){
-                  this.$createToast({
-                    type: 'correct',
-                     txt:  res.data.returnMsg,
-                    time: 1000
-                }).show()
-              }
+          // console.log(res)
+          if (res.data.returnCode !== '0000') {
+            this.$createToast({
+              type: 'correct',
+              txt: res.data.returnMsg,
+              time: 1000
+            }).show()
+          }
         })
 
         this.timer = setInterval(() => {
           if (this.countdown > 0 && this.countdown <= 60) {
-            this.countdown--;
+            this.countdown--
             if (this.countdown !== 0) {
-              this.codeMsg = "重新发送(" + this.countdown + ")";
-              
+              this.codeMsg = '重新发送(' + this.countdown + ')'
             } else {
-            clearInterval(this.timer);
-            this.codeMsg = "获取验证码";
-            this.countdown = 60;
-            this.timer = null;
-            this.codeDisabled = false;
+              clearInterval(this.timer)
+              this.codeMsg = '获取验证码'
+              this.countdown = 60
+              this.timer = null
+              this.codeDisabled = false
             }
           }
         }, 1000)
       }
-      
-     
     },
-    idTypeChange(value, index, text) {
+    idTypeChange (value, index, text) {
       console.log('idTypeChange', value, index, text)
-      this.form.idType = index+1
+      this.form.idType = index + 1
     },
-    sexChange(value, index, text) {
+    sexChange (value, index, text) {
       console.log('sexChange', value, index, text)
-
     },
-     showDatePicker() {
+    showDatePicker () {
       if (!this.datePicker) {
         this.datePicker = this.$createDatePicker({
           title: 'Date Picker',
@@ -168,17 +161,17 @@ export default {
 
       this.datePicker.show()
     },
-     selectHandle(date, selectedVal, selectedText) {
+    selectHandle (date, selectedVal, selectedText) {
       console.log(selectedText.join('-'))
-       this.form.birthday = selectedText.join('-')
+      this.form.birthday = selectedText.join('-')
     },
-     cancelHandle() {
+    cancelHandle () {
       // this.$createToast({
       //   type: 'correct',
       //   txt: 'Picker canceled',
       //   time: 1000
       // }).show()
-      console.log("用户取消")
+      console.log('用户取消')
     }
   }
 }

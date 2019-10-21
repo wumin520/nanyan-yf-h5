@@ -56,7 +56,7 @@ export default {
     border-radius:10px;
     display: flex;
     flex-direction: column;
-    margin: 20px auto; 
+    margin: 20px auto;
  }
 
 .box1{

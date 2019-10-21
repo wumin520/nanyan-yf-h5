@@ -14,23 +14,23 @@
 
 <script>
 export default {
-    props:['num'], //页面跳转初值设置
-    data () {
-        return {
-            thatnum: this.num,
-             tabs:[
-                {url:'./home',img:require("../assets/home/home.png"),active:require('../assets/home/homeAct.png')},
-                {url:'#',img:require("../assets/home/kefu.png"),active:require('../assets/home/kefuAct.png')},
-                {url:'./center',img:require("../assets/home/my.png"),active:require('../assets/home/myAct.png')}
-            ]
-        }
-    },
-    methods:{
-        addClassName: function(index) {
-            this.thatnum = index;  //tarbar图片切换
-            // console.log("index-->",index,"thatnum==>",this.thatnum)
-        }
+  props: ['num'], // 页面跳转初值设置
+  data () {
+    return {
+      thatnum: this.num,
+      tabs: [
+        { url: './home', img: require('../assets/home/home.png'), active: require('../assets/home/homeAct.png') },
+        { url: '#', img: require('../assets/home/kefu.png'), active: require('../assets/home/kefuAct.png') },
+        { url: './center', img: require('../assets/home/my.png'), active: require('../assets/home/myAct.png') }
+      ]
     }
+  },
+  methods: {
+    addClassName: function (index) {
+      this.thatnum = index // tarbar图片切换
+      // console.log("index-->",index,"thatnum==>",this.thatnum)
+    }
+  }
 }
 </script>
 

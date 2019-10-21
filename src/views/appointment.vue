@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import api from "@/utils/api";
+import api from '@/utils/api'
 
 export default {
-  data() {
+  data () {
     return {
       validity: {},
       valid: undefined,
@@ -50,7 +50,7 @@ export default {
       },
       schema: {
         groups: [
-          {   //第一部分
+          { // 第一部分
             legend: '公司基本信息',
             fields: [
               {
@@ -89,7 +89,7 @@ export default {
               }
             ]
           },
-           {   //第二部分
+          { // 第二部分
             legend: '人员基本信息',
             fields: [
               {
@@ -207,41 +207,41 @@ export default {
                 modelKey: 'diseasesNumber',
                 label: '既往症人数或已患重病疾人数(若有，请告知人数及病种)',
                 props: {
-                    placeholder: '既往症人数或已患重病疾人数(若有，请告知人数及病种)'
+                  placeholder: '既往症人数或已患重病疾人数(若有，请告知人数及病种)'
                 }
               }
             ]
           },
-          {   //第三部分
-                legend: '过往合作',
-                fields: [
-                {
-                    type: 'input',
-                    modelKey: 'lossRation',
-                    label: '历史赔付率',
-                    props: {
-                    placeholder: '请输入历史赔付率'
-                    }
-                },
-                {
-                    type: 'input',
-                    modelKey: 'preUnderwritingCompany',
-                    label: '前期承保公司',
-                    props: {
-                    placeholder: '请输入前期承保公司'
-                    }
-                },
-                {
-                    type: 'textarea',
-                    modelKey: 'explain',
-                    label: '特殊补充说明',
-                    props: {
-                    placeholder: '请输入特殊补充说明'
-                    }
+          { // 第三部分
+            legend: '过往合作',
+            fields: [
+              {
+                type: 'input',
+                modelKey: 'lossRation',
+                label: '历史赔付率',
+                props: {
+                  placeholder: '请输入历史赔付率'
                 }
-                ]
+              },
+              {
+                type: 'input',
+                modelKey: 'preUnderwritingCompany',
+                label: '前期承保公司',
+                props: {
+                  placeholder: '请输入前期承保公司'
+                }
+              },
+              {
+                type: 'textarea',
+                modelKey: 'explain',
+                label: '特殊补充说明',
+                props: {
+                  placeholder: '请输入特殊补充说明'
+                }
+              }
+            ]
           },
-           {   //第四部分
+          { // 第四部分
             legend: '联系信息',
             fields: [
               {
@@ -258,7 +258,7 @@ export default {
                 label: '性别',
                 props: {
                   options: ['男', '女']
-                } 
+                }
               },
               {
                 type: 'input',
@@ -310,10 +310,10 @@ export default {
     console.log(this.$refs)
   },
   methods: {
-    submitHandler(e) {
+    submitHandler (e) {
       e.preventDefault()
       console.log('submit--》', e)
-      console.log("====>", this.model)
+      console.log('====>', this.model)
       this.model.type = 2
       api.order(this.model).then((res) => {
         console.log(res)
@@ -322,15 +322,15 @@ export default {
           title: '提交成功',
           icon: 'cubeic-right'
         }).show()
-        this.$refs.form.reset();      
+        this.$refs.form.reset()
       })
     },
-    validateHandler(result) {
+    validateHandler (result) {
       this.validity = result.validity
       this.valid = result.valid
       console.log('validity', result.validity, result.valid, result.dirty, result.firstInvalidFieldIndex)
     },
-    resetHandler(e) {
+    resetHandler (e) {
       console.log('reset', e)
     }
   }
@@ -347,7 +347,7 @@ export default {
  }
 
  .cube-form-group-legend{
-    
+
  }
 
  .cube-btn{

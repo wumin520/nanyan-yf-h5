@@ -12,7 +12,7 @@
             <img class="input-1" src="../assets/verify/verify1.png">
             <input type="text" class="input-2" name="" id="" placeholder="验证码">
             <div class="input-3">获取验证码</div>
-        </div>   
+        </div>
     </div>
 
     <cube-button class="verifyBtn">下一步</cube-button>
@@ -20,7 +20,6 @@
     <div class="help">收不到短信？ </div>
   </div>
 
-  
 </template>
 
 <script>

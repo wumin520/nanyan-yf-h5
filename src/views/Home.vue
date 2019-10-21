@@ -51,7 +51,6 @@
 
   </div>
 
-  
 </template>
 
 <script>
@@ -80,18 +79,17 @@ export default {
       ]
     }
   },
-  methods:{
-    change(val,e) {
-      console.log(val,e)
+  methods: {
+    change (val, e) {
+      console.log(val, e)
     },
-    myBd() {
-      this.$router.push({name:"bdDetail"})
+    myBd () {
+      this.$router.push({ name: 'bdList' })
     }
   }
 }
 </script>
 <style scoped lang="scss">
-  
 
  .title{
     font-size: 0.453333rem;
@@ -157,7 +155,7 @@ export default {
   position: relative;
 }
 .guarantee-down-child3{
- 
+
   position: relative;
   width:170px;
   height:82px;
@@ -212,14 +210,13 @@ export default {
   width: 21px;
 }
 
-
 .tabWrap {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
 }
- 
+
 .active p{
   color: #006a3c;
 }

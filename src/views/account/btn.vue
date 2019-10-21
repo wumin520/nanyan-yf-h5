@@ -4,15 +4,15 @@
 
 <script>
 export default {
-    data(){
-        return{
+  data () {
+    return {
 
-        }
-    },
-  methods:{
-      addCard() {
-          this.$router.replace({name:'addAccount'})
-      }
+    }
+  },
+  methods: {
+    addCard () {
+      this.$router.replace({ name: 'addAccount' })
+    }
   }
 }
 </script>

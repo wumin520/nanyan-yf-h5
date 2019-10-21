@@ -4,7 +4,7 @@
             <img class="input-1" src="../../assets/account/account1.png">
             <input type="text" class="input-2" name="" id="" placeholder="持卡人">
             <div class="input-3">持卡人</div>
-        </div>  
+        </div>
         <div class="input">
             <img class="input-1" src="../../assets/account/account2.png">
             <input type="text" class="input-2" name="" id="" placeholder="身份证号码">
@@ -19,7 +19,7 @@
             <img class="input-1" src="../../assets/account/account2.png">
             <input type="text" class="input-2" name="" id="" placeholder="开户行">
             <div class="input-3">请选择开户行</div>
-        </div> 
+        </div>
         <cube-button class="Btn">更改</cube-button>
      </div>
 </template>

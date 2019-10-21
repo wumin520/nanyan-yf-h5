@@ -30,7 +30,7 @@
         <cube-button class="Btn" @click="exit">退出登录</cube-button>
       </div>
     </div>
-  
+
   <tab-Bar :num="2"></tab-Bar>
   </div>
 </template>
@@ -42,12 +42,12 @@ export default {
     return {
     }
   },
-  methods:{
+  methods: {
     forwardTo (path) {
       this.$router.push(path)
     },
     exit () {
-      this.$router.push({name:'login'})
+      this.$router.push({ name: 'login' })
     }
   }
 }

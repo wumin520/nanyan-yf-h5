@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import api from '@/utils/api';
+import api from '@/utils/api'
 
 export default {
   data () {
     return {
-        list: []
+      list: []
     }
   },
   mounted () {
@@ -59,7 +59,7 @@ export default {
     border-radius:10px;
     display: flex;
     flex-direction: column;
-    margin: 20px auto; 
+    margin: 20px auto;
  }
 
 .box1{

@@ -1,7 +1,7 @@
 <template>
   <div class="account">
     <div class="title">理赔账户</div>
-   
+
     <div class="card">
         <div class="card-up">
             <div class="card-up-left">
@@ -19,11 +19,9 @@
     </div>
 
     <router-view></router-view>
-    
 
   </div>
 
-  
 </template>
 
 <script>
@@ -79,7 +77,6 @@ export default {
     margin: 0 10px 10px 0;
  }
 
- 
  .txt{
      font-size:16px;
      font-weight: 600;
@@ -96,7 +93,6 @@ export default {
      font-weight: normal;
      margin-top:4px;
  }
-
 
  .circle{
      height:40px;

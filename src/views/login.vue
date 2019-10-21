@@ -14,30 +14,30 @@
 </template>
 
 <script>
-import api from "@/utils/api"
-import { setLogined, cacheUserInfo } from "@/utils/authorized";
+import api from '@/utils/api'
+import { setLogined, cacheUserInfo } from '@/utils/authorized'
 
 export default {
   data () {
     return {
-        form:{
-          userName:'',
-          passWord: ''
-        },
-        placeholder1:'请输入省份证、手机号',
-        placeholder2:'请输入密码'
+      form: {
+        userName: '',
+        passWord: ''
+      },
+      placeholder1: '请输入省份证、手机号',
+      placeholder2: '请输入密码'
     }
   },
-  methods:{
-    login() {
+  methods: {
+    login () {
       api.login(this.form).then(res => {
-        cacheUserInfo(res.data.content);
-        setLogined(1);
-        
-        if(res.data.returnCode !== "0000"){
+        cacheUserInfo(res.data.content)
+        setLogined(1)
+
+        if (res.data.returnCode !== '0000') {
           this.$createToast({
             type: 'correct',
-            txt:  res.data.returnMsg,
+            txt: res.data.returnMsg,
             time: 1000
           }).show()
         } else {
@@ -45,7 +45,7 @@ export default {
             txt: '登录成功,准备跳转...',
             time: 1000,
             onTimeout: () => {
-              this.$router.push({name:'home'})
+              this.$router.push({ name: 'home' })
             }
           }).show()
         }

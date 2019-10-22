@@ -2,7 +2,7 @@
   <div class="login">
     <img src="../assets/login.png" alt="logo" class="logo">
     <div class="login_form">
-        <cube-input class="logStyle" :placeholder="placeholder1" v-model="form.userName"></cube-input>
+        <cube-input class="logStyle" :placeholder="placeholder1" v-model="form.loginName"></cube-input>
         <cube-input class="logStyle" :placeholder="placeholder2" v-model="form.passWord"></cube-input>
         <cube-button class="Btn" @click="login">立即登录</cube-button>
         <div class="logStyle1">
@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       form: {
-        userName: '',
+        loginName: '',
         passWord: ''
       },
       placeholder1: '请输入省份证、手机号',

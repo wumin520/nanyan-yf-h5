@@ -145,12 +145,12 @@ api.validate = function (data) {
 
 // 注册
 api.binding = function (data) {
-  return instance.post('/wechat/user/updateUser', data)
+  return instance.post('/wechat/user/updateUser', qs.stringify(data))
 }
 
 // 登录
 api.login = function (data) {
-  return instance.post('/wechat/user/login/authority', data)
+  return instance.post('/wechat/user/login/authority', qs.stringify(data))
 }
 
 api.exitLogin = function (data) {

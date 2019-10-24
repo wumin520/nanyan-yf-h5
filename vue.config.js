@@ -29,6 +29,5 @@ module.exports = {
         target: '<other_url>'
       }
     }
-  },
-  publicPath: '/m'
+  }
 }

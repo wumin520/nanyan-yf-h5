@@ -1,6 +1,6 @@
 <template>
   <div class="verify">
-    <div class="title">身份认证</div>
+    <div class="title">注册</div>
     <div class="verify-input">
         <div class="input">
             <img class="input-1" src="../assets/center/center1.png">
@@ -39,9 +39,12 @@
         </div>
     </div>
 
-    <cube-button class="verifyBtn" @click="regist" :disabled="codeDisabled">立即认证</cube-button>
+    <cube-button class="verifyBtn" @click="regist" :disabled="codeDisabled">立即注册</cube-button>
 
-    <div class="help" @click="jumpLogin">已有账号 立即登录</div>
+    <div class="bottom_">
+      已有账号
+      <span class="help" @click="jumpLogin">立即登录</span>
+    </div>
 
   </div>
 
@@ -213,7 +216,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .cube-select{
   width:78%;
   text-align: left;
@@ -320,12 +323,15 @@ i{
     font-weight:500;
     color:rgba(255,255,255,1);
  }
-
+.bottom_ {
+  text-align: right;
+  font-size: 16px;
+  height: 48px;
+  line-height: 48px;
+  margin: 0 auto;
+  width: 85%;
  .help{
     color: #297FFF;
-    margin: 0 auto;
-    font-size: 16px;
-    height: 48px;
-    line-height: 48px;
  }
+}
 </style>

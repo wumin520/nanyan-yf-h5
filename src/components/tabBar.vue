@@ -20,7 +20,7 @@ export default {
       thatnum: this.num,
       tabs: [
         { url: './home', img: require('../assets/home/home.png'), active: require('../assets/home/homeAct.png') },
-        { url: '#', img: require('../assets/home/kefu.png'), active: require('../assets/home/kefuAct.png') },
+        // { url: '#', img: require('../assets/home/kefu.png'), active: require('../assets/home/kefuAct.png') },
         { url: './center', img: require('../assets/home/my.png'), active: require('../assets/home/myAct.png') }
       ]
     }
@@ -50,7 +50,7 @@ export default {
     background: #fff;
 }
 .weui-tabbar__icon{
-  height: 34px;
+  height: auto;
   width: 21px;
 }
 </style>

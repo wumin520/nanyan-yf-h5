@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div class="title">宇泰员福</div>
-
     <cube-slide :loop="slideDate.loop" :auto-play="slideDate.autoPlay" :interval="slideDate.interval" :data="items">
     </cube-slide>
 
@@ -12,10 +11,12 @@
         </div>
       <div class="guarantee-down">
         <div class="guarantee-down-child1" @click="myBd">
-          <div class="child-text1">我的保单</div>
-          <div class="child-text2">新的体验马上来</div>
+          <div class="wrap_">
+            <div class="child-text1">我的保单</div>
+            <div class="child-text2">新的体验马上来</div>
+          </div>
         </div>
-        <div class="guarantee-down-child2">
+        <div style="visibility: hidden;" class="guarantee-down-child2">
           <div class="child-text1">保单保全</div>
           <div class="child-text2">安全舒心每一天</div>
         </div>
@@ -25,15 +26,17 @@
     <div class="guarantee payFor">
       <div class="guarantee-up">
         <img class="guarantee-up-icon"  src="../assets/home/guranteeIcon.png" alt="icon">
-        理赔中心
+        体检中心
         </div>
       <div class="guarantee-down">
         <div class="guarantee-down-child3">
-          <div class="child-text1 payFor1">掌上理赔</div>
-          <div class="child-text2 payFor2">轻松玩转理赔</div>
-          <img class="guarantee-down-icon" src="../assets/home/guarantee3.png" alt="img">
+          <a href="http://lnh.run4wd.com/m/home">
+            <div class="child-text1 payFor1">网上预约</div>
+            <div class="child-text2 payFor2">一键搞定你的需求</div>
+            <img class="guarantee-down-icon" src="../assets/home/guarantee3.png" alt="img">
+          </a>
         </div>
-        <div class="guarantee-down-child3">
+        <div style="visibility: hidden;" class="guarantee-down-child3">
           <div class="child-text1 payFor1">理赔查询</div>
           <div class="child-text2 payFor2">查询我的信息</div>
           <img class="guarantee-down-icon" src="../assets/home/guarantee3.png" alt="img">
@@ -64,14 +67,6 @@ export default {
         interval: 2000
       },
       items: [
-        {
-          url: '#',
-          image: require('../assets/home/banner.png')
-        },
-        {
-          url: '#',
-          image: require('../assets/home/banner.png')
-        },
         {
           url: '#',
           image: require('../assets/home/banner.png')
@@ -132,6 +127,11 @@ export default {
    width: 100%;
    display: flex;
    justify-content: space-around;
+   .wrap_ {
+    position: relative; 
+    margin-top: 16px;
+    height: 100%;
+   }
  }
 .guarantee-down-icon{
     height:61px;
@@ -155,7 +155,6 @@ export default {
   position: relative;
 }
 .guarantee-down-child3{
-
   position: relative;
   width:170px;
   height:82px;
@@ -165,17 +164,17 @@ export default {
 }
 .child-text1{
   font-size: 15px;
-    color: #fff;
-    top: 8%;
-    position: absolute;
-    left: 8%;
+  color: #fff;
+  position: absolute;
+  top: 8%;
+  left: 8%;
 }
 
 .child-text2{
     font-size: 8px;
     color: #fff;
     position: absolute;
-    top: 33%;
+    top: 28%;
     left: 8%;
 }
 
@@ -185,13 +184,13 @@ export default {
 
 .payFor1{
   color: #252525;
-  top: 33%;
-  left: 13%;
+  top: 28%;
+  left: 8%;
 }
 .payFor2{
   color: #6E6E6E;
     top: 55%;
-    left: 13%;
+    left: 8%;
 }
 
 .tabBar{

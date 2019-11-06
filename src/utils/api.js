@@ -92,7 +92,7 @@ instance.interceptors.response.use(
     if (returnCode !== '0000') {
       if (returnCode === '1012') {
         window.router.push('/login')
-      } if (returnCode === '1027') {
+      } else if (returnCode === '1027') {
         window.router.push('/register')
       } else {
         window.toast({

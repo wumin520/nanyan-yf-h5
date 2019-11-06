@@ -11,7 +11,7 @@ export default new Router({
     {
       path: "/",
       name: "index",
-      redirect: { name: "register" }
+      redirect: { name: "home" }
     },
     {
       path: '/home',
@@ -88,6 +88,11 @@ export default new Router({
       path: '/appointment',
       name: 'appointment',
       component: () => import('./views/appointment.vue')
+    },
+    {
+      path: '/ln/appointment',
+      name: 'ln-appointment',
+      component: () => import('./views/ln/appointment.vue')
     }
   ]
 })

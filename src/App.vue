@@ -12,6 +12,7 @@
 html {
   font-size: 10vw;
 }
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

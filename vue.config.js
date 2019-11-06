@@ -15,6 +15,7 @@ module.exports = {
       theme: true
     }
   },
+  publicPath: '/m',
   devServer: {
     proxy: {
       '^/api': {

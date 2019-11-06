@@ -6,8 +6,8 @@
         <cube-input class="logStyle" :placeholder="placeholder2" v-model="form.passWord"></cube-input>
         <cube-button class="Btn" @click="login">立即登录</cube-button>
         <div class="logStyle1">
-            <div class="logTxt">忘记密码？</div>
-            <div class="logTxt"><router-link to="/register">立即注册</router-link> </div>
+            <div style="display: none;" class="logTxt">忘记密码？</div>
+            <div class="logTxt">还没账号？<router-link to="/register">立即注册</router-link> </div>
         </div>
     </div>
   </div>
@@ -87,16 +87,15 @@ export default {
     width:305px;
     display: flex;
     height: 50px;
-    justify-content: space-between;
+    justify-content: flex-end;
  }
 
  .logTxt{
-    width:100px;
     height:14px;
     font-size:15px;
     font-family:Source Han Sans CN;
     font-weight:400;
-    color:rgba(41,127,255,1);
+    /* color:rgba(41,127,255,1); */
     line-height:15px;
  }
 

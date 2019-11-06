@@ -26,12 +26,12 @@
         <img class="list_img" src="../assets/center/center4.png" alt="img">
         <div class="list_txt">关于我们</div>
       </div> -->
-      <div class="list_btn">
+      <div style="display: none;" class="list_btn">
         <cube-button class="Btn" @click="exit">退出登录</cube-button>
       </div>
     </div>
 
-  <tab-Bar :num="2"></tab-Bar>
+  <tab-Bar :num="1"></tab-Bar>
   </div>
 </template>
 
@@ -134,7 +134,7 @@ export default {
   font-size:15px;
   font-family:Microsoft YaHei;
   font-weight:400;
-  color:rgba(181,181,181,1);
+  color: #333;
 }
 
 .list_btn{

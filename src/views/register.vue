@@ -1,6 +1,6 @@
 <template>
   <div class="verify">
-    <div class="title">注册</div>
+    <div class="title">身份认证</div>
     <div class="verify-input">
         <div class="input">
             <img class="input-1" src="../assets/center/center1.png">
@@ -39,12 +39,12 @@
         </div>
     </div>
 
-    <cube-button class="verifyBtn" @click="regist" :disabled="codeDisabled">立即注册</cube-button>
+    <cube-button class="verifyBtn" @click="regist" :disabled="codeDisabled">提交</cube-button>
 
-    <div class="bottom_">
+    <!-- <div class="bottom_">
       已有账号
       <span class="help" @click="jumpLogin">立即登录</span>
-    </div>
+    </div> -->
 
   </div>
 
@@ -60,7 +60,7 @@ export default {
       timer: null,
       codeMsg: '获取验证码',
       idTypeValue: '证件类型',
-      idTypeOptions: ['省份证', '其他'],
+      idTypeOptions: ['身份证', '其他'],
       idTypePlaceholder: '证件类型',
       form: {
         name: '',
@@ -190,8 +190,8 @@ export default {
     showDatePicker () {
       if (!this.datePicker) {
         this.datePicker = this.$createDatePicker({
-          title: 'Date Picker',
-          min: new Date(2008, 7, 8),
+          title: '请选择时间',
+          min: new Date(1949, 7, 8),
           max: new Date(2020, 9, 20),
           value: new Date(),
           onSelect: this.selectHandle,
@@ -221,6 +221,7 @@ export default {
   width:78%;
   text-align: left;
   padding: 0;
+  background: none;
 }
 i{
   display: none;
@@ -288,6 +289,7 @@ i{
     height: 32px;
     width: 250px;
     outline: none;
+    background: none;
  }
 
 .input-3{

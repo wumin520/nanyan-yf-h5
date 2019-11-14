@@ -30,7 +30,7 @@
         </div>
       <div class="guarantee-down">
         <div class="guarantee-down-child3">
-          <a href="http://lnh.run4wd.com/m/home">
+          <a href="http://lnh.run4wd.com/m/idCardLogin">
             <div class="child-text1 payFor1">网上预约</div>
             <div class="child-text2 payFor2">一键搞定你的需求</div>
             <img class="guarantee-down-icon" src="../assets/home/guarantee3.png" alt="img">

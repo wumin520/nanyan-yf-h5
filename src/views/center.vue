@@ -118,8 +118,8 @@ export default {
     content: '';
     width: 10px;
     height: 10px;
-    border-top: 2px solid #eee;
-    border-right: 2px solid #eee;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
     transform: rotateZ(45deg);
   }
 }

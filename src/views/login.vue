@@ -3,11 +3,11 @@
     <img src="../assets/login.png" alt="logo" class="logo">
     <div class="login_form">
         <cube-input class="logStyle" :placeholder="placeholder1" v-model="form.loginName"></cube-input>
-        <cube-input class="logStyle" :placeholder="placeholder2" v-model="form.passWord"></cube-input>
+        <cube-input type="passWord" class="logStyle" :placeholder="placeholder2" v-model="form.passWord"></cube-input>
         <cube-button class="Btn" @click="login">立即登录</cube-button>
         <div class="logStyle1">
-            <div style="display: none;" class="logTxt">忘记密码？</div>
-            <div class="logTxt">还没账号？<router-link to="/register">立即注册</router-link> </div>
+            <div class="logTxt"><router-link to="/">返回首页</router-link></div>
+            <!-- <div class="logTxt">还没账号？<router-link to="/register">立即注册</router-link> </div> -->
         </div>
     </div>
   </div>
@@ -87,7 +87,7 @@ export default {
     width:305px;
     display: flex;
     height: 50px;
-    justify-content: flex-end;
+    justify-content: space-around;
  }
 
  .logTxt{

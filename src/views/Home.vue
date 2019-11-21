@@ -1,10 +1,11 @@
 <template>
-  <div class="home">
-    <div class="title">宇泰员福</div>
+  <div class="home_">
+    <div class="line_"></div>
+    <!-- <div class="title">宇泰员福</div> -->
     <cube-slide :loop="slideDate.loop" :auto-play="slideDate.autoPlay" :interval="slideDate.interval" :data="items">
     </cube-slide>
 
-    <div class="guarantee">
+    <!-- <div class="guarantee">
       <div class="guarantee-up">
         <img class="guarantee-up-icon"  src="../assets/home/guranteeIcon.png" alt="icon">
         保单服务
@@ -21,9 +22,21 @@
           <div class="child-text2">安全舒心每一天</div>
         </div>
       </div>
+    </div> -->
+    <div class="nav_bar">
+      <div class="nav_" v-for="item in nav" :key="item.id" @click="myBd(item.id)">
+        <img :src="item.img" alt="img">
+        <div class="txt_">{{item.txt}}</div>
+      </div>
+    </div>
+    <div class="cutoff_"></div>
+
+    <div class="question_">
+      <img src="../assets/home/question.png" alt="img">
     </div>
 
-    <div class="guarantee payFor">
+    <div class="cutoff_" style="height:30vh"></div>
+    <!-- <div class="guarantee payFor">
       <div class="guarantee-up">
         <img class="guarantee-up-icon"  src="../assets/home/guranteeIcon.png" alt="icon">
         体检中心
@@ -42,7 +55,7 @@
           <img class="guarantee-down-icon" src="../assets/home/guarantee3.png" alt="img">
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="tabBar">
       <img src="../assets/home/home.png" @click="change($route,'homeAct')">
@@ -71,30 +84,93 @@ export default {
           url: '#',
           image: require('../assets/home/banner.png')
         }
+      ],
+      nav:[
+        {
+          id: '1',
+          img:require('../assets/home/home1.png'),
+          txt:'我的保单'
+        },
+        {
+          id: '2',
+          img:require('../assets/home/home2.png'),
+          txt:'我的体检'
+        },
+        {
+          id: '3',
+          img:require('../assets/home/home3.png'),
+          txt:'掌上理赔'
+        },
+        {
+          id: '4',
+          img:require('../assets/home/home4.png'),
+          txt:'理赔查询'
+        }
       ]
+
     }
   },
   methods: {
     change (val, e) {
       console.log(val, e)
     },
-    myBd () {
-      this.$router.push({ name: 'bdList' })
+    myBd (id) {
+      if(id === '1'){
+        this.$router.push({ name: 'bdList' })
+      }
     }
   }
 }
 </script>
 <style scoped lang="scss">
+.line_{
+  height: 30px;
+}
+  .question_{
+    margin:20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 95%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+
+  .cutoff_{
+    background:rgba(245,245,245,1);
+    height:10px;
+  }
+  .nav_bar{
+    display: flex;
+    height: 100px;
+    margin:0 10px;
+    align-items: center;
+  }
+  
+  .nav_ {
+    flex: 1;
+
+    img{
+      height: 32px;
+      width: auto;
+    }
+    .txt_{
+      margin-top: 5px;
+      font-size:11px;
+      font-family:PingFang SC;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+    }
+  }
 
  .title{
     font-size: 0.453333rem;
-    font-family: Source Han Sans CN;
-    font-weight: 600;
-    color: #252525;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    margin:30px 100px 17px 100px;
+    margin:30px 100px 20px 100px;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(51,51,51,1);
  }
 
  .guarantee{

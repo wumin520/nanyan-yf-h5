@@ -31,7 +31,21 @@ html {
   }
 }
 
-.cube-slide-item > a > img{
-    width: 100%;
+.home_{
+  .cube-slide-item{
+    a{
+      img{
+        width: 90%;
+          margin: 0 auto;
+      }
+    }
+  }
+}
+.verify{
+  .cube-select{
+    span{
+      padding-left: 20px;
+    }
+  }
 }
 </style>

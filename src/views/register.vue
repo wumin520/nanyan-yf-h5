@@ -1,14 +1,19 @@
 <template>
+
   <div class="verify">
-    <div class="title">身份认证</div>
+    <!-- <div class="title">身份认证</div> -->
+    <span class="welcome_">欢迎注册宇泰员福</span>
+
     <div class="verify-input">
         <div class="input">
-            <img class="input-1" src="../assets/center/center1.png">
-            <input v-model="form.name" type="text" class="input-2" name="" id="" placeholder="姓名">
+            <div class="label_">姓名：</div>
+            <!-- <img class="input-1" src="../assets/center/center1.png"> -->
+            <input v-model="form.name" type="text" style="padding-left:27px;" class="input-2" name="" id="" placeholder="姓名">
 
         </div>
         <div class="input">
-            <img class="input-1" src="../assets/center/center1.png">
+            <div class="label_">证件类型：</div>
+            <!-- <img class="input-1" src="../assets/center/center1.png"> -->
             <!-- <input type="text" class="input-2" name="" id="" placeholder="证件类型"> -->
             <cube-select
               v-model="idTypeValue"
@@ -18,22 +23,26 @@
             </cube-select>
         </div>
         <div class="input">
-            <img class="input-1" src="../assets/account/account2.png">
+            <!-- <img class="input-1" src="../assets/account/account2.png"> -->
+            <div class="label_">证件号码：</div>
             <input v-model="form.idNumber" type="text" class="input-2" name="" id="" placeholder="证件号码">
         </div>
         <div class="input">
-            <img class="input-1" src="../assets/verify/verify1.png">
+            <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
+            <div class="label_">出生日期：</div>
             <input v-model="form.birthday" type="text" class="input-2" name="" id="" placeholder="生日" @click="showDatePicker">
 
         </div>
 
         <div class="input">
-            <img class="input-1" src="../assets/account/account3.png">
+            <!-- <img class="input-1" src="../assets/account/account3.png"> -->
+            <div class="label_">手机号码：</div>
             <input v-model="form.phone" type="text" class="input-2" name="" id="" placeholder="手机号">
         </div>
 
         <div class="input">
-            <img class="input-1" src="../assets/verify/verify1.png">
+            <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
+            <div class="label_">验证码：</div>
             <input v-model="form.verificationCode" style="width: 41%;" type="text" class="input-2" name="" id="" placeholder="验证码">
             <div class="input-3 input-code" @click="getCode">{{codeMsg}}</div>
         </div>
@@ -41,10 +50,9 @@
 
     <cube-button class="verifyBtn" @click="regist" :disabled="codeDisabled">提交</cube-button>
 
-    <!-- <div class="bottom_">
-      已有账号
-      <span class="help" @click="jumpLogin">立即登录</span>
-    </div> -->
+    <div class="bottom_">
+      <span class="help" @click="jumpLogin">已有账号，去登录</span>
+    </div>
 
   </div>
 
@@ -217,11 +225,30 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.welcome_{
+  font-size:22px;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  margin-top: 40px;
+  position: absolute; 
+  left: 7%;
+  top: 0;
+}
+.label_{
+  font-size:13px;
+  font-family:PingFang SC;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+}
 .cube-select{
   width:78%;
   text-align: left;
   padding: 0;
   background: none;
+}
+.verify{
+  margin-top: 70px;
 }
 i{
   display: none;
@@ -233,10 +260,11 @@ i{
   display:none;
 }
 .input-2::-webkit-input-placeholder {
-    color: #ccc;
-    font-size: 14px;
-    /* padding-left:9px; */
-    font-weight: 400;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(204,204,204,1);
+    font-size: 13px;
+    padding-left: 20px; 
 }
 .input:-moz-placeholder {
     color: rgba(181,181,181,1);
@@ -270,13 +298,13 @@ i{
 
  .input{
      font-size: 16px;
-     padding: 15px 10px 5px;
+     padding: 15px 0px 5px;
      height: 40px;
      width: 85%;
      display: flex;
      justify-content: space-around;
      align-items: center;
-     border-bottom: 1px solid #D3D3D3;
+     border-bottom: 1px solid #f0f0f0;
  }
 
  .input-1{
@@ -314,26 +342,27 @@ i{
  }
 
  .verifyBtn{
-    font-size: 16px;
+    font-size: 15px;
     padding: 0;
     margin: 0 auto;
     height:42px;
     width: 85%;
-    background: #297FFF;
-    border-radius: 25px;
-    font-family:Microsoft YaHei;
-    font-weight:500;
+    background: #2989FF;
+    font-family:PingFang SC;
+    font-weight:400;
     color:rgba(255,255,255,1);
  }
 .bottom_ {
   text-align: right;
-  font-size: 16px;
-  height: 48px;
-  line-height: 48px;
+  font-size: 12px;
+  height: 45px;
+  line-height: 45px;
   margin: 0 auto;
   width: 85%;
  .help{
-    color: #297FFF;
+   font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(41,127,255,1);
  }
 }
 </style>

@@ -7,6 +7,7 @@
             <img v-if="thatnum==index"  :src="i.active" class="last first weui-tabbar__icon">
             <!-- <p class="weui-tabbar__label">{{i.text}}</p> -->
           </router-link>
+          <div class="title_">{{i.title}}</div>
       </a>
     </div>
 </div>
@@ -19,9 +20,9 @@ export default {
     return {
       thatnum: this.num,
       tabs: [
-        { url: './home', img: require('../assets/home/home.png'), active: require('../assets/home/homeAct.png') },
+        { url: './home', img: require('../assets/home/home.png'), active: require('../assets/home/homeAct.png'),title:'首页' },
         // { url: '#', img: require('../assets/home/kefu.png'), active: require('../assets/home/kefuAct.png') },
-        { url: './center', img: require('../assets/home/my.png'), active: require('../assets/home/myAct.png') }
+        { url: './center', img: require('../assets/home/my.png'), active: require('../assets/home/myAct.png') ,title:'我的'}
       ]
     }
   },
@@ -35,11 +36,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title_{
+  font-size:10px;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
 .wrap_ {
     height: 50px;
 }
 .tabBar{
-   height: 50px;
+   height: 70px;
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -53,4 +60,5 @@ export default {
   height: auto;
   width: 21px;
 }
+
 </style>

@@ -12,6 +12,15 @@
 html {
   font-size: 10vw;
 }
+html, body {
+  min-height: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.bgf_ {
+  background: #fff;
+}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -19,6 +28,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
 }
 #nav {
   padding: 30px;

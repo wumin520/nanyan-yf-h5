@@ -1,8 +1,8 @@
 <template>
   <div class="home_">
-    <div class="line_"></div>
+    <div class="line_ bgf_"></div>
     <!-- <div class="title">宇泰员福</div> -->
-    <cube-slide :loop="slideDate.loop" :auto-play="slideDate.autoPlay" :interval="slideDate.interval" :data="items">
+    <cube-slide class="bgf_" :loop="slideDate.loop" :auto-play="slideDate.autoPlay" :interval="slideDate.interval" :data="items">
     </cube-slide>
 
     <!-- <div class="guarantee">
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div> -->
-    <div class="nav_bar">
+    <div class="nav_bar bgf_">
       <div class="nav_" v-for="item in nav" :key="item.id" @click="myBd(item.id)">
         <img :src="item.img" alt="img">
         <div class="txt_">{{item.txt}}</div>
@@ -31,7 +31,7 @@
     </div>
     <div class="cutoff_"></div>
 
-    <div class="question_">
+    <div class="question_ bgf_">
       <img src="../assets/home/question.png" alt="img">
     </div>
 
@@ -127,7 +127,7 @@ export default {
   height: 30px;
 }
   .question_{
-    margin:20px 10px;
+    padding:20px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,13 +139,13 @@ export default {
   }
 
   .cutoff_{
-    background:rgba(245,245,245,1);
+    background: #f5f5f5;
     height:10px;
   }
   .nav_bar{
     display: flex;
     height: 100px;
-    margin:0 10px;
+    padding:0 10px;
     align-items: center;
   }
   

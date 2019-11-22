@@ -67,7 +67,11 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.login {
+  background: #fff;
+  height: 100%;
+}
 .logo {
   height: 80px;
   width: auto;

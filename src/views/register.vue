@@ -1,6 +1,6 @@
 <template>
 
-  <div class="verify">
+  <div class="verify page_">
     <!-- <div class="title">身份认证</div> -->
     <span class="welcome_">欢迎注册宇泰员福</span>
 
@@ -225,6 +225,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.page_ {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+}
 .welcome_{
   font-size:22px;
   font-family:PingFang SC;
@@ -248,7 +253,7 @@ export default {
   background: none;
 }
 .verify{
-  margin-top: 70px;
+  padding-top: 70px;
 }
 i{
   display: none;

@@ -28,10 +28,8 @@
             <input v-model="form.idNumber" type="text" class="input-2" name="" id="" placeholder="证件号码">
         </div>
         <div class="input">
-            <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
             <div class="label_">出生日期：</div>
             <input v-model="form.birthday" type="text" class="input-2" name="" id="" placeholder="生日" @click="showDatePicker">
-
         </div>
 
         <div class="input">
@@ -45,6 +43,18 @@
             <div class="label_">验证码：</div>
             <input v-model="form.verificationCode" style="width: 41%;" type="text" class="input-2" name="" id="" placeholder="验证码">
             <div class="input-3 input-code" @click="getCode">{{codeMsg}}</div>
+        </div>
+
+        <div class="input">
+            <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
+            <div class="label_">密码：</div>
+            <input v-model="form.password" type="text" class="input-2" name="" id="" placeholder="密码">
+        </div>
+
+        <div class="input">
+            <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
+            <div class="label_">确认密码：</div>
+            <input v-model="form.confirmPassword" type="text" class="input-2" name="" id="" placeholder="密码">
         </div>
     </div>
 
@@ -107,21 +117,18 @@ export default {
      } else if (this.form.verificationCode == ""){
        this.tipInfo("请输入验证码")
        return false
-     }
-
-      var myPromise = new Promise((result,reject) => {
-          api.validate({verificationCode:this.form.verificationCode,phone:this.form.phone}).then(res => {
-             if (res.data.returnCode !== '0000') {
-                this.tipInfo(res.data.returnMsg)
-                rejest()
-              } else {  
-                result()
-              }
-          })
-      })
-      
-      myPromise.then(() => {
-          api.binding(this.form).then(res => {
+     }  else if (this.form.password == ""){
+       this.tipInfo("请输入密码")
+       return false
+     }  else if (this.form.confirmPassword == ""){
+       this.tipInfo("请确认密码")
+       return false
+     } else if (this.form.password !== this.form.confirmPassword){
+       this.tipInfo("两次密码不一致")
+       return false
+     } else {
+      console.log(11111)
+        api.authority(this.form).then(res => {
           if (res.data.returnCode !== '0000') {
             this.$createToast({
               type: 'correct',
@@ -138,9 +145,7 @@ export default {
             }).show()
           }
         })
-      })
-      
-
+     }
     },
     getCode () {
       let params = {

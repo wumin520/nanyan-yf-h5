@@ -117,6 +117,8 @@ export default {
     myBd (id) {
       if(id === '1'){
         this.$router.push({ name: 'bdList' })
+      } else if(id === '2'){
+        window.location = "http://lnh.run4wd.com/m/home"
       }
     }
   }

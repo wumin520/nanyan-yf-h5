@@ -9,7 +9,7 @@
         <ul class="plan_wrap_">
           <li :key="item.id" v-for="item in detailInfo.planList">
             <div class="top_"><span>{{item.planName}}</span><label class="right_">{{item.coverage}}元</label></div>
-            <div v-if="item.deductibleExcess || item.lossRation" class="middle_">免赔额{{item.deductibleExcess}}元 赔付比率{{item.lossRation}}%</div>
+            <div v-if="item.deductibleExcess || item.lossRation" class="middle_">免赔额{{item.deductibleExcess}}元 赔付比率{{item.lossRation}}</div>
           </li>
         </ul>
         <!-- <cube-button class="Btn">查看福利详情</cube-button> -->

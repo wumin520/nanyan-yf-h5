@@ -135,7 +135,7 @@ api.getPolicyById = function (data) {
 
 // 获取验证码
 api.getVerificationCode = function (data) {
-  return instance.post('/wechat/user/getVerificationCode', qs.stringify(data))
+  return instance.post('/wechat/user/getVerificationCode/authority', qs.stringify(data))
 }
 
 //校验验证码
@@ -144,8 +144,8 @@ api.validate = function (data) {
 }
 
 // 注册
-api.binding = function (data) {
-  return instance.post('/wechat/user/updateUser', qs.stringify(data))
+api.authority = function (data) {
+  return instance.post('/wechat/user/signIn/authority', qs.stringify(data))
 }
 
 // 登录
@@ -154,7 +154,7 @@ api.login = function (data) {
 }
 
 api.exitLogin = function (data) {
-  return instance.post('wechat/user/exit', data)
+  return instance.post('/wechat/user/exit', data)
 }
 
 export default api

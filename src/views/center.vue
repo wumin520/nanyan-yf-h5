@@ -21,9 +21,11 @@
           <div class="list_txt">{{item.txt}}</div>
       </div>
       
-      <div style="display: none;" class="list_btn">
+      
+    </div>
+
+    <div class="list_btn">
         <cube-button class="Btn" @click="exit">退出登录</cube-button>
-      </div>
     </div>
 
   <tab-Bar :num="1"></tab-Bar>
@@ -197,6 +199,13 @@ export default {
 .list_btn{
   border: none;
   margin-top: 50px;
+  text-align: right;
+  font-size: 12px;
+  height: 45px;
+  line-height: 45px;
+  margin: 0 auto;
+  width: 90%;
+  background: #2989FF;
 }
 
 .Btn{
@@ -206,6 +215,7 @@ export default {
     font-size: 14px;
     font-family: Microsoft YaHei;
     font-weight: 400;
-    color: rgba(41,127,255,1);
+    color:#fff;
+
  }
 </style>

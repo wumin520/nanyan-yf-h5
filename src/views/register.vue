@@ -41,7 +41,7 @@
         <div class="input">
             <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
             <div class="label_">验证码：</div>
-            <input v-model="form.verificationCode" style="width: 41%;" type="text" class="input-2" name="" id="" placeholder="验证码">
+            <input v-model="form.verificationCode" style="width: 49%;" type="text" class="input-2" name="" id="" placeholder="验证码">
             <div class="input-3 input-code" @click="getCode">{{codeMsg}}</div>
         </div>
 
@@ -249,9 +249,11 @@ export default {
   font-family:PingFang SC;
   font-weight:600;
   color:rgba(51,51,51,1);
+  width: 80px;
+  text-align: left;
 }
 .cube-select{
-  width:78%;
+  width:84%;
   text-align: left;
   padding: 0;
   background: none;
@@ -273,7 +275,7 @@ i{
     font-weight:400;
     color:rgba(204,204,204,1);
     font-size: 13px;
-    padding-left: 20px; 
+    text-align: left;
 }
 .input:-moz-placeholder {
     color: rgba(181,181,181,1);
@@ -326,6 +328,7 @@ i{
     height: 32px;
     width: 250px;
     outline: none;
+    padding-left: 20px; 
     background: none;
  }
 

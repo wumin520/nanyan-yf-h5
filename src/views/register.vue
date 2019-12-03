@@ -48,13 +48,13 @@
         <div class="input">
             <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
             <div class="label_">密码：</div>
-            <input v-model="form.password" type="text" class="input-2" name="" id="" placeholder="密码">
+            <input v-model="form.password" type="passWord" class="input-2" name="" id="" placeholder="密码">
         </div>
 
         <div class="input">
             <!-- <img class="input-1" src="../assets/verify/verify1.png"> -->
             <div class="label_">确认密码：</div>
-            <input v-model="form.confirmPassword" type="text" class="input-2" name="" id="" placeholder="密码">
+            <input v-model="form.confirmPassword" type="passWord" class="input-2" name="" id="" placeholder="密码">
         </div>
     </div>
 
@@ -127,7 +127,6 @@ export default {
        this.tipInfo("两次密码不一致")
        return false
      } else {
-      console.log(11111)
         api.authority(this.form).then(res => {
           if (res.data.returnCode !== '0000') {
             this.$createToast({
@@ -197,7 +196,7 @@ export default {
       }
     },
     idTypeChange (value, index, text) {
-      console.log('idTypeChange', value, index, text)
+      // console.log('idTypeChange', value, index, text)
       this.form.idType = index + 1
     },
     showDatePicker () {
@@ -215,7 +214,7 @@ export default {
       this.datePicker.show()
     },
     selectHandle (date, selectedVal, selectedText) {
-      console.log(selectedText.join('-'))
+      // console.log(selectedText.join('-'))
       this.form.birthday = selectedText.join('-')
     },
     cancelHandle () {
@@ -369,6 +368,7 @@ i{
   line-height: 45px;
   margin: 0 auto;
   width: 85%;
+  margin-bottom: 30px;
  .help{
    font-family:PingFang SC;
     font-weight:400;

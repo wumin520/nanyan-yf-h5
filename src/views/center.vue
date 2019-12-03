@@ -6,8 +6,8 @@
         <img class="head_1" src="../assets/center/head.png" alt="head">
         <div class="right_">
           <div class="user_">
-            <div class="head_2 head_3">{{userInfo.name || '骆聪颖'}}</div>
-           <div class="head_2">{{userInfo.phone || '18310427777'}}</div>
+            <div class="head_2 head_3">{{userInfo.name || ''}}</div>
+           <div class="head_2">{{userInfo.phone || ''}}</div>
           </div>
           <img src="../assets/center/arrow.png" alt="img" class="arrow_">
         </div>
@@ -73,7 +73,9 @@ export default {
       }
     },
     exit () {
+
       api.exitLogin().then(res => res.data).then(data => {
+        localStorage.removeItem("user_info")
         this.$router.push({ name: 'login' })
       })
     }
@@ -198,12 +200,12 @@ export default {
 
 .list_btn{
   border: none;
-  margin-top: 50px;
   text-align: right;
   font-size: 12px;
   height: 45px;
   line-height: 45px;
   margin: 0 auto;
+  margin-bottom: 90px;
   width: 90%;
   background: #2989FF;
 }

@@ -15,7 +15,7 @@
             <div class="label_">证件类型：</div>
             <!-- <img class="input-1" src="../assets/center/center1.png"> -->
             <!-- <input type="text" class="input-2" name="" id="" placeholder="证件类型"> -->
-            <cube-select
+            <cube-select class="font_"
               v-model="idTypeValue"
               :options="idTypeOptions"
               :placeholder="idTypePlaceholder"
@@ -229,6 +229,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.font_{
+  font-size:13px;
+  font-family:PingFang SC;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+}
+
 .page_ {
   background: #fff;
   height: 100%;
@@ -287,7 +294,7 @@ i{
  .title{
   margin:30px 100px 17px 100px;
   font-size: 17px;
-  font-family:Microsoft YaHei,Source Han Sans CN;
+  font-family:PingFang SC;
   font-weight:600;
   color:rgba(37,37,37,1);
  }
@@ -301,7 +308,7 @@ i{
     margin-bottom: 1rem;
     width: 100%;
     display: flex;
-    font-family: Microsoft YaHei;
+    font-family: PingFang SC;
     flex-direction: column;
     justify-content: center;
     align-items: center;

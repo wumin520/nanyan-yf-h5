@@ -33,7 +33,7 @@ export default {
  .title{
   margin:30px 100px 17px 100px;
   font-size: 17px;
-  font-family:Source Han Sans CN;
+  font-family:PingFang SC;
   font-weight:600;
   color:rgba(37,37,37,1);
 
@@ -45,7 +45,7 @@ export default {
 
 .text{
     font-size:17px;
-    font-family:Source Han Sans CN;
+    font-family:PingFang SC;
     font-weight:400;
     color:rgba(110,110,110,1);
     height: 45px;
@@ -59,7 +59,7 @@ export default {
 .text2{
     margin: 0 15px;
     font-size:17px;
-    font-family:Source Han Sans CN;
+    font-family:PingFang SC;
     font-weight:400;
     color:#297FFF;
     line-height:25px;
@@ -68,7 +68,7 @@ export default {
 .text3{
     margin-right: 15px;
     font-size:17px;
-    font-family:Source Han Sans CN;
+    font-family:PingFang SC;
     font-weight:400;
     color:#297FFF;
     line-height:25px;

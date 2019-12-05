@@ -340,7 +340,7 @@ export default {
 <style>
 .title{
     font-size: 0.453333rem;
-    font-family: Source Han Sans CN;
+    font-family: PingFang SC;
     font-weight: 600;
     color: #252525;
     margin:30px 100px 17px 100px;

@@ -38,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 .title_{
   font-size:10px;
-  font-family:Source Han Sans CN;
+  font-family:PingFang SC;
   font-weight:400;
   color:rgba(51,51,51,1);
 }

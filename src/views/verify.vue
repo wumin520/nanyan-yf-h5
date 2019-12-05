@@ -35,7 +35,7 @@ export default {
  .title{
   margin:30px 100px 17px 100px;
   font-size: 17px;
-  font-family:Source Han Sans CN;
+  font-family:PingFang SC;
   font-weight:600;
   color:rgba(37,37,37,1);
  }

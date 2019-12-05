@@ -42,7 +42,7 @@ export default {
  .title{
   margin:30px 100px 17px 100px;
   font-size:18px;
-    font-family:Microsoft YaHei;
+    font-family:PingFang SC;
     font-weight:600;
     color:rgba(37,37,37,1);
     line-height:19px;
@@ -72,7 +72,7 @@ export default {
     height: 0.32rem;
     flex:1;
     font-size: 0.32rem;
-    font-family: Microsoft YaHei;
+    font-family: PingFang SC;
     font-weight: 400;
     color: rgba(110,110,110,1);
     display: flex;
@@ -83,7 +83,7 @@ export default {
     width: 90%;
     height: 0.373333rem;
     font-size: 0.373333rem;
-    font-family: Microsoft YaHei;
+    font-family: PingFang SC;
     font-weight: bold;
     color: rgba(110,110,110,1);
     flex: 1;

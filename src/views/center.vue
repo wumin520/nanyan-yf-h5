@@ -70,6 +70,8 @@ export default {
     forwardTo (id,path) {
       if(id==="1"){
         this.$router.push(path)
+      } else if(id === '2'){
+        window.location = "http://lnh.run4wd.com/m/home"
       }
     },
     exit () {
@@ -215,7 +217,7 @@ export default {
     background: none;
     border-radius: 0.666667rem;
     font-size: 14px;
-    font-family: Microsoft YaHei;
+    font-family: PingFang SC;
     font-weight: 400;
     color:#fff;
 

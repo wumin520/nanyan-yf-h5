@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
  input::-webkit-input-placeholder{
-    font-family:Microsoft YaHei;
+    font-family:PingFang SC;
     font-weight:500;
     color:rgba(181,181,181,1);
  }
@@ -71,7 +71,7 @@ export default {
 .input-3{
      height: 16px;
      width: 32%;
-    font-family:Microsoft YaHei;
+    font-family:PingFang SC;
     font-weight:400;
     color:rgba(181,181,181,1);
     display: flex;

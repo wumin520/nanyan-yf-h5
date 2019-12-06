@@ -77,7 +77,7 @@ export default {
   width: auto;
   margin: 100px auto;
   font-size: 52px;
-  font-family: Myriad Pro;
+  font-family: PingFang SC;
   font-weight: 400;
   color: rgba(41, 127, 255, 1);
   text-shadow: 0px 1px 2px rgba(177, 176, 176, 0.36);

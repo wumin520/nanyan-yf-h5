@@ -71,7 +71,7 @@ export default {
       if(id==="1"){
         this.$router.push(path)
       } else if(id === '2'){
-        window.location = "http://lnh.run4wd.com/m/home"
+        window.location = "http://lnh.ssish.com/m/home"
       }
     },
     exit () {
